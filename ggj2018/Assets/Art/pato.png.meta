@@ -1,6 +1,6 @@
 fileFormatVersion: 2
-guid: 18f66f94225334907b92a637d55a69f7
-timeCreated: 1517093724
+guid: c514dd4d3bf9d413e82a3aa26bd228f7
+timeCreated: 1517096849
 licenseType: Free
 TextureImporter:
   fileIDToRecycleName:
@@ -8,6 +8,7 @@ TextureImporter:
     21300002: pato_1
     21300004: pato_2
     21300006: pato_3
+    21300008: pato_4
   externalObjects: {}
   serializedVersion: 4
   mipmaps:
@@ -46,7 +47,7 @@ TextureImporter:
   compressionQuality: 50
   spriteMode: 2
   spriteExtrude: 1
-  spriteMeshType: 0
+  spriteMeshType: 1
   alignment: 0
   spritePivot: {x: 0.5, y: 0.5}
   spriteBorder: {x: 0, y: 0, z: 0, w: 0}
@@ -118,9 +119,9 @@ TextureImporter:
       rect:
         serializedVersion: 2
         x: 0
-        y: 1
-        width: 29
-        height: 31
+        y: 0
+        width: 32
+        height: 32
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -131,9 +132,9 @@ TextureImporter:
       name: pato_1
       rect:
         serializedVersion: 2
-        x: 29
+        x: 32
         y: 0
-        width: 27
+        width: 32
         height: 32
       alignment: 0
       pivot: {x: 0, y: 0}
@@ -145,9 +146,9 @@ TextureImporter:
       name: pato_2
       rect:
         serializedVersion: 2
-        x: 56
+        x: 64
         y: 0
-        width: 60
+        width: 32
         height: 32
       alignment: 0
       pivot: {x: 0, y: 0}
@@ -159,9 +160,23 @@ TextureImporter:
       name: pato_3
       rect:
         serializedVersion: 2
-        x: 116
+        x: 96
         y: 0
-        width: 25
+        width: 32
+        height: 32
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: pato_4
+      rect:
+        serializedVersion: 2
+        x: 128
+        y: 0
+        width: 32
         height: 32
       alignment: 0
       pivot: {x: 0, y: 0}
