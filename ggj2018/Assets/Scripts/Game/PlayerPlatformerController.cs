@@ -93,6 +93,6 @@ public class PlayerPlatformerController : PhysicsObject {
             Debug.Log(letter_count);
         }
 
-        text_find_letter.GetComponent<Text>().text = letter_count + " of 5";
+        text_find_letter.GetComponent<Text>().text = letter_count + " of 7";
     }
 }
