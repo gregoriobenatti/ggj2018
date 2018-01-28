@@ -138,6 +138,10 @@ public class StartOptions : MonoBehaviour {
 
         HideDelayed();
         Debug.Log("Coroutine done. Game started in same scene! Put your game starting stuff here.");
+		
+		SceneManager.LoadScene(1); // intro
+		yield return new WaitForSeconds(7);
+		SceneManager.LoadScene(2); // game
     }
 
 
