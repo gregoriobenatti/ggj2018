@@ -4,9 +4,13 @@ using System.Collections;
  
 public class PlayerController : MonoBehaviour
 {      
+	private Rigidbody2D r2D = new Rigidbody2D();
+
 	public class GroundState
     {
-    	private GameObject player;
+		private Collider2D c2D = new Collider2D();
+		
+		private GameObject player;
         private float  width;
         private float height;
         private float length;
@@ -14,9 +18,10 @@ public class PlayerController : MonoBehaviour
         //GroundState constructor.  Sets offsets for raycasting.
         public GroundState(GameObject playerRef)
         {
+
         	player = playerRef;
-            width = player.collider2D.bounds.extents.x + 0.1f;
-			height = player.collider2D.bounds.extents.y + 0.2f;
+            width = c2D.bounds.extents.x + 0.1f;
+			height = c2D.bounds.extents.y + 0.2f;
             length = 0.05f;
 		}
  
@@ -104,11 +109,11 @@ public class PlayerController : MonoBehaviour
  
     void FixedUpdate()
     {
-    	rigidbody2D.AddForce(new Vector2(((input.x * speed) - rigidbody2D.velocity.x) * (groundState.isGround() ? accel : airAccel), 0)); //Move player.
-        rigidbody2D.velocity = new Vector2((input.x == 0 && groundState.isGround()) ? 0 : rigidbody2D.velocity.x, (input.y == 1 && groundState.isTouching()) ? jump : rigidbody2D.velocity.y); //Stop player if input.x is 0 (and grounded) and jump if input.y is 1
+		r2D.AddForce(new Vector2(((input.x * speed) - r2D.velocity.x) * (groundState.isGround() ? accel : airAccel), 0)); //Move player.
+        r2D.velocity = new Vector2((input.x == 0 && groundState.isGround()) ? 0 : r2D.velocity.x, (input.y == 1 && groundState.isTouching()) ? jump : r2D.velocity.y); //Stop player if input.x is 0 (and grounded) and jump if input.y is 1
  
         if(groundState.isWall() && !groundState.isGround() && input.y == 1)
-        	rigidbody2D.velocity = new Vector2(-groundState.wallDirection() * speed * 0.75f, rigidbody2D.velocity.y); //Add force negative to wall direction (with speed reduction)
+        	r2D.velocity = new Vector2(-groundState.wallDirection() * speed * 0.75f, r2D.velocity.y); //Add force negative to wall direction (with speed reduction)
  
     	input.y = 0;
     }
