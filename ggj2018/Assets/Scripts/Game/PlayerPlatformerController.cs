@@ -1,6 +1,8 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
+using UnityEngine.UI;
 
 public class PlayerPlatformerController : PhysicsObject {
 
@@ -9,8 +11,15 @@ public class PlayerPlatformerController : PhysicsObject {
     public GameObject spawn_point;
     
     private bool hit_enemy = false;
+    private bool hit_letter = false;
+    private int letter_count = 0;
+    private int MAX_PIECES = 5;
+
     public Transform hit_Check;
+    public GameObject text_find_letter;
+
     private float hit_Radius = 0.2f;
+    public LayerMask is_hitting_letter_layer;
     public LayerMask is_hitting_enemy_layer;
 
     private SpriteRenderer spriteRenderer;
@@ -63,11 +72,27 @@ public class PlayerPlatformerController : PhysicsObject {
         targetVelocity = move * maxSpeed;
 
         hit_enemy = Physics2D.OverlapCircle(hit_Check.position, hit_Radius, is_hitting_enemy_layer);
+        hit_letter = Physics2D.OverlapCircle(hit_Check.position, hit_Radius, is_hitting_letter_layer);
         
-        if(hit_enemy)
+        if (hit_enemy)
 		{
-            Debug.Log("--- DEAD ---------");
+            Debug.Log("Morreu");
             this.transform.position = spawn_point.transform.position;
 		}
+
+        if (hit_letter)
+        {            
+            letter_count += 1;
+
+            if (letter_count >= MAX_PIECES)
+            {
+                SceneManager.LoadScene(3); // game_win
+            }
+
+            Debug.Log("Achou pedaço! ");
+            Debug.Log(letter_count);
+        }
+
+        text_find_letter.GetComponent<Text>().text = letter_count + " of 5";
     }
 }
