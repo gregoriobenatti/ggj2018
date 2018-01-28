@@ -13,7 +13,7 @@ public class PlayerPlatformerController : PhysicsObject {
     private bool hit_enemy = false;
     private bool hit_letter = false;
     private int letter_count = 0;
-    private int MAX_PIECES = 5;
+    private int MAX_PIECES = 7;
 
     public Transform hit_Check;
     public GameObject text_find_letter;
