@@ -19,4 +19,9 @@ public class GameManager : MonoBehaviour {
 	{
 		SceneManager.LoadScene(2); // game
 	}
+
+	public void play_again()
+	{
+		SceneManager.LoadScene(2); // game
+	}
 }
