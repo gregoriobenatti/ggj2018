@@ -7,7 +7,7 @@ using UnityEngine.UI;
 public class PlayerPlatformerController : PhysicsObject {
 
     public float maxSpeed = 7;
-    public float jumpTakeOffSpeed = 7;
+    public float jumpTakeOffSpeed = 11;
     public GameObject spawn_point;
     
     private bool hit_enemy = false;
