@@ -6,6 +6,12 @@ public class PlayerPlatformerController : PhysicsObject {
 
     public float maxSpeed = 7;
     public float jumpTakeOffSpeed = 7;
+    public GameObject spawn_point;
+    
+    private bool hit_enemy = false;
+    public Transform hit_Check;
+    private float hit_Radius = 0.2f;
+    public LayerMask is_hitting_enemy_layer;
 
     private SpriteRenderer spriteRenderer;
     // private Animator animator;
@@ -15,6 +21,10 @@ public class PlayerPlatformerController : PhysicsObject {
     {
         spriteRenderer = GetComponent<SpriteRenderer> (); 
         // animator = GetComponent<Animator> ();
+    }
+
+    void OnTriggerEnter(Collider other) {
+        Debug.Log(other);
     }
 
     protected override void ComputeVelocity()
@@ -51,5 +61,13 @@ public class PlayerPlatformerController : PhysicsObject {
         // animator.SetFloat ("velocityX", Mathf.Abs (velocity.x) / maxSpeed);
 
         targetVelocity = move * maxSpeed;
+
+        hit_enemy = Physics2D.OverlapCircle(hit_Check.position, hit_Radius, is_hitting_enemy_layer);
+        
+        if(hit_enemy)
+		{
+            Debug.Log("--- DEAD ---------");
+            this.transform.position = spawn_point.transform.position;
+		}
     }
 }
